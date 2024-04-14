@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spark>
+    <!-- Configuration for the HTML report -->
+    <documentTitle>Extent HTML Report</documentTitle>
+    <encoding>utf-8</encoding>
+    <css>styles.css</css>
+    <js>custom.js</js>
+    <!-- Configuration for the chart -->
+    <chartTheme>standard</chartTheme>
+    <!-- Configuration for the test view -->
+    <protocol>https</protocol>
+    <timelineEnabled>false</timelineEnabled>
+    <!-- Configuration for the system information -->
+    <systemInfo>
+        <param>Name</param>
+        <param>Version</param>
+        <!-- You can add more system information parameters here -->
+    </systemInfo>
+    <!-- Configuration for the dashboard view -->
+    <dashboardView>
+        <collapse>collapseExpand</collapse>
+        <testViewChart>true</testViewChart>
+        <simpleView>false</simpleView>
+    </dashboardView>
+</spark>
