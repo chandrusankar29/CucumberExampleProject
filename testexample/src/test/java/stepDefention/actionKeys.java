@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -55,7 +56,7 @@ public class actionKeys {
    
 	    @When("I click check possible action class functionalities")
 	    public void i_click_check_possible_action_class_functionalities() throws InterruptedException, AWTException {
-	    	Thread.sleep(2000);
+	    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 //	    	WebElement ele = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a/span"));
 //           Actions actions = new Actions(driver);
 //           actions.moveToElement(ele).click().perform();
@@ -65,10 +66,11 @@ public class actionKeys {
            
            WebElement myinfo = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[6]/a/span"));
            myinfo.click();
-           Thread.sleep(2000);
+           driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
            WebElement uploadImage = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[1]/div[1]/div[2]/div/img"));
            uploadImage.click();
-           Thread.sleep(3000);
+           
+       	   driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
      
            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
            StringSelection str = new StringSelection("C:\\Users\\chandru\\Hulk.png");
@@ -76,17 +78,19 @@ public class actionKeys {
 
            WebElement element = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[1]/div/div/div[2]/div/div/img"));
            element.click();
-           Thread.sleep(2000);
+
+       	   driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
            Robot robot = new Robot();
            robot.keyPress(KeyEvent.VK_CONTROL);
            robot.keyPress(KeyEvent.VK_V);
-           Thread.sleep(2000);
+        	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
            robot.keyRelease(KeyEvent.VK_CONTROL);
            robot.keyRelease(KeyEvent.VK_V);
-           Thread.sleep(2000);
+           
+       	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
            robot.keyPress(KeyEvent.VK_ENTER);
            robot.keyRelease(KeyEvent.VK_ENTER);
-           Thread.sleep(2000);
+       	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
            WebElement submitButton = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[2]/button"));
            submitButton.click();
 	    }

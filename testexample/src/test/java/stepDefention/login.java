@@ -55,7 +55,7 @@ private loginPage log;
         String actualTitle = driver.getTitle();
         String expectedTitle = "OrangeHRM";
         Assert.assertEquals(expectedTitle, actualTitle);
-        Thread.sleep(3000);
+    	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         TakesScreenshot screenshot = (TakesScreenshot)driver;
       //Saving the screenshot in desired location
       File source = screenshot.getScreenshotAs(OutputType.FILE);
@@ -66,7 +66,7 @@ private loginPage log;
     }
     @Then("I should not successfully log in to the application")
     public void i_should_not_successfully_log_in_to_the_application() throws InterruptedException, IOException {
-    	 Thread.sleep(2000);
+     	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     	String errorMessage = driver.findElement(By.cssSelector("p[class='oxd-text oxd-text--p oxd-alert-content-text']")).getText();
     	System.out.println("PrintMessage        "+errorMessage);
     	String expectedErrorMessage = "Invalid credentials";
@@ -77,9 +77,7 @@ private loginPage log;
          //Path to the location to save screenshot
          FileUtils.copyFile(source, new File("C:\\Users\\chandru\\OneDrive\\Desktop\\AutomationSupports\\FailedUseCase.png"));
          System.out.println("Screenshot is captured");
-         
 
-         
     }
 
 }

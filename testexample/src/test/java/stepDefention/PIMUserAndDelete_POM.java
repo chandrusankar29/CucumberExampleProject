@@ -1,6 +1,8 @@
 package stepDefention;
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 
 import stepDefention.hooks;
@@ -22,7 +24,7 @@ public class PIMUserAndDelete_POM {
         hooks hooksIns = new hooks(); // Create hooks instance
         driver = hooksIns.getDriver();
         log = new loginPage(driver);
-		Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		log.enterUsername(username);
 		log.enterPassword(password);
 	}
@@ -36,16 +38,16 @@ public class PIMUserAndDelete_POM {
 	@When("I clicked the PIM section method")
 	public void i_clicked_the_pim_section_method() throws InterruptedException {
 		PIM = new PIMUserCreationPage(driver);
-		Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		PIM.PIMClick();
 
 	}
 
 	@When("Clicked Add button and started creating User firstname {string} and middlename {string} and lastname {string}")
 	public void clicked_add_button_and_started_creating_user(String firstName, String middleName, String lastName) throws InterruptedException {
-		Thread.sleep(2000);
-		PIM.AddClick();
-		Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+    	PIM.AddClick();
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		PIM.createUser(firstName, middleName, lastName);
 		PIM.Click();
 	}

@@ -50,27 +50,28 @@ public class SaveAddressDetails {
 
 	@When("I clicked my info section")
 	public void i_clicked_my_info_section() throws InterruptedException {
-		Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//span[text()='My Info']")).click();
 	}
 
 	@When("I clicked Contact Details")
 	public void i_clicked_contact_details() throws InterruptedException {
-		Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//a[text()='Contact Details']")).click();	   
 	}
 
 	@When("i enter address details an cliked Save button")
 	public void i_enter_address_details_an_cliked_save_button() throws InterruptedException {
-		Thread.sleep(2000);
+		
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div/div[1]/div/div[2]/input")).sendKeys("No 8 kumaran st");
 		driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div/div[2]/div/div[2]/input")).sendKeys("No 8 kumaran st");
 		WebElement dropdown = driver.findElement(By.cssSelector("#app > div.oxd-layout > div.oxd-layout-container > div.oxd-layout-context > div > div > div > div.orangehrm-edit-employee-content > div.orangehrm-horizontal-padding.orangehrm-vertical-padding > form > div:nth-child(3) > div > div:nth-child(6) > div > div:nth-child(2) > div > div > div.oxd-select-text-input"));
         dropdown.click();
-        Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         WebElement option = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[1]/div/div[6]/div/div[2]/div/div[2]/div[4]"));
 	    option.click();
-	    Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/form/div[4]/button")).click();
 	}
 

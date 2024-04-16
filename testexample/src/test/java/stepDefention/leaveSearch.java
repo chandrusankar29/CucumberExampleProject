@@ -1,4 +1,6 @@
 package stepDefention;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -37,9 +39,10 @@ public class leaveSearch {
     
 	@When("check")
 	public void check() throws InterruptedException {
-		Thread.sleep(2000);
+		
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.findElement(By.cssSelector("#app > div.oxd-layout > div.oxd-layout-navigation > aside > nav > div.oxd-sidepanel-body > ul > li:nth-child(3) > a > span")).click();
-		Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		WebElement Fromdate = driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input"));
 		Actions actions = new Actions(driver);
 		actions.click(Fromdate).keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).sendKeys(Keys.BACK_SPACE).build().perform();
@@ -65,9 +68,6 @@ public class leaveSearch {
         
 	    driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[3]/button[2]")).click();
 	    
-	    
-		
-		
 	}
 
 	@Then("check checks")

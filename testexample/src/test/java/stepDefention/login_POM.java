@@ -2,6 +2,7 @@ package stepDefention;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
@@ -34,7 +35,7 @@ public class login_POM {
 
     @When("I enter valid username {string} and password {string} POM")
     public void i_enter_valid_username_and_password_POM(String username, String password) throws InterruptedException {
-    	Thread.sleep(2000);
+    	driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     	log.enterUsername(username);
     	log.enterPassword(password);
     }
@@ -49,14 +50,13 @@ public class login_POM {
         String actualTitle = driver.getTitle();
         String expectedTitle = "OrangeHRM";
         Assert.assertEquals(expectedTitle, actualTitle);
-        Thread.sleep(3000);
+    	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         TakesScreenshot screenshot = (TakesScreenshot)driver;
       //Saving the screenshot in desired location
       File source = screenshot.getScreenshotAs(OutputType.FILE);
       //Path to the location to save screenshot
       FileUtils.copyFile(source, new File("C:\\Users\\chandru\\OneDrive\\Desktop\\AutomationSupports\\PositiveCase.png"));
       System.out.println("Screenshot is captured");
-      
       log.logout();
         
     }
